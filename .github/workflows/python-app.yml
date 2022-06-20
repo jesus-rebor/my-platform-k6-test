@@ -1,7 +1,4 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
-
-name: Python application
+name: Search data generation
 
 on:
   workflow_dispatch:
@@ -21,11 +18,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.9
+    - name: Set up Python
       uses: actions/setup-python@v3
       with:
         python-version: "3.9"
-    - name: Install dependencies
+    - name: Install dependencies and run generation
       run: |
         python3 -m venv test_env
         source test_env/bin/activate
