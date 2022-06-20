@@ -3,10 +3,24 @@ name: Search data generation
 on:
   workflow_dispatch:
     inputs:
-      release-version:
-        description: 'Release version tag'
-        default: 'v1.0.0'
+      instances:
+        description: 'Instances to generate data'
+        default: 'zara'
         required: true
+      languages:
+        description: 'Languages to generate data'
+        default: 'en_GB'
+        required: true
+      endpoints:
+        description: 'Endpoints to generate data'
+        default: 'search'
+        required: true
+      generation-mode:
+        description: 'Target of the data generated'
+        type: choice
+        options:
+        - saas
+        - platform
 
 permissions:
   contents: write
@@ -14,10 +28,12 @@ permissions:
 jobs:
   build:
 
-    runs-on: [self-hosted, platform]
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.SUPPORT_TOKEN }}
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
@@ -30,6 +46,14 @@ jobs:
         cd search/data-generation
         pipenv install
         python3 -m pip install elasticsearch
-        echo "###################### installed pipenv dependencies"
         cd ../..
-        python3 search/data-generation/real-query-generator.py    
+    - name: Replace environment variables
+      uses: jacobtomlinson/gha-find-replace@v2
+      with:
+        find: "INSTANCES=*"
+        replace: "INSTANCES=${{ github.event.inputs.instances }}"
+        include: "**options.ini"
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Automatically generated search dataset
+        file_pattern: '*.json'
