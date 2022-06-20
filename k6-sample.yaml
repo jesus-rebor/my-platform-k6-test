@@ -1,0 +1,23 @@
+apiVersion: k6.io/v1alpha1
+kind: K6
+metadata:
+  name: k6-sample
+spec:
+  parallelism: 10
+  script:
+    volumeClaim:
+      name: k6-runner-tests
+      file: search/test/k6-test-real-data.js
+  arguments: --out prometheus=namespace=k6
+  ports:
+  - containerPort: 5656
+    name: metrics
+  runner:
+    image: 500449725748.dkr.ecr.eu-west-1.amazonaws.com/ops/k6:v0.2.0
+    resources:
+      requests:
+        cpu: "2000m"
+        memory: "4Gi"
+      limits:
+        cpu: "2000m"
+        memory: "4Gi"

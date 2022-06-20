@@ -1,0 +1,24 @@
+{
+    "serviceConfiguration": {
+        "serviceURL": "https://api.staging.empathy.co/search/v1/query"
+    },
+    "clientConfiguration": {
+        "instance": "zara",
+        "endpoints": [
+          {
+            "name": "empathize",
+            "trafficDistribution": "62"
+          },
+          {
+            "name": "search",
+            "trafficDistribution": "38"
+          }
+        ]
+    },
+	"testConfiguration": {
+	    "tpm": 20000,
+	    "rampupTime": "5m",
+	    "holdupTime": "5m",
+	    "preAllocatedVUs": 600
+    }
+}

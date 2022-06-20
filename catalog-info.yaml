@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: K6-load-testing
+  tags:
+    - platform
+  description: K6 provides a simple, flexible and powerful load testing framework.
+  links:
+    - url: https://k6.io/docs/
+      title: Official documentation
+      icon: help
+    - url: https://github.com/empathyco/platform-k6-tests
+      title: K6 GitHub project
+      icon: web
+    - url: https://argocd.infra.internal.shared.empathy.co/applications/k6
+      title: ArgoCD
+      icon: dashboard
+  annotations:
+    github.com/project-slug: empathyco/platform-k6-tests
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/edit-url: https://github.com/empathyco/platform-k6-tests/edit/main/catalog-info.yaml
+    argocd/proxy-url: '/argocd/api-shared'
+    argocd/app-name: k6
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/instance=k6'
+spec:
+  type: service
+  owner: platform-engineering
+  lifecycle: production

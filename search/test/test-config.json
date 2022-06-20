@@ -1,0 +1,31 @@
+{
+    "serviceConfiguration": {
+        "serviceURL": "https://api.empathybroker.com/search/v1/query"
+    },
+    "clientConfiguration": {
+        "endpoints": [
+          {
+            "name": "autocomplete",
+            "trafficDistribution": "54"
+          },
+          {
+            "name": "empathize",
+            "trafficDistribution": "8"
+          },
+          {
+            "name": "search",
+            "trafficDistribution": "31"
+          },
+          {
+            "name": "nextqueries",
+            "trafficDistribution": "7"
+          }
+        ]
+    },
+	"testConfiguration": {
+	    "tpm": 700000,
+	    "rampupTime": "10m",
+	    "holdupTime": "30m",
+	    "preAllocatedVUs": 600
+    }
+}

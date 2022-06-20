@@ -1,0 +1,55 @@
+{
+    "serviceConfiguration": {
+        "serviceURL": "https://api.empathybroker.com/search/v1/query"
+    },
+    "clientConfiguration": {
+        "endpoints": [
+          {
+            "name": "empathize",
+            "trafficDistribution": "39"
+          },
+          {
+            "name": "search",
+            "trafficDistribution": "11"
+          },
+          {
+            "name": "skusearch",
+            "trafficDistribution": "11"
+          },
+          {
+            "name": "topclicked",
+            "trafficDistribution": "10"
+          },
+          {
+            "name": "links",
+            "trafficDistribution": "8"
+          },
+          {
+            "name": "nextqueries",
+            "trafficDistribution": "8"
+          },
+          {
+            "name": "relatedtags",
+            "trafficDistribution": "5"
+          },
+          {
+            "name": "searchv2",
+            "trafficDistribution": "4"
+          },
+          {
+            "name": "searchApp",
+            "trafficDistribution": "3"
+          },
+          {
+            "name": "searchv3",
+            "trafficDistribution": "1"
+          }
+        ]
+    },
+	"testConfiguration": {
+	    "tpm": 5000,
+	    "rampupTime": "1m",
+	    "holdupTime": "3m",
+	    "preAllocatedVUs": 600
+    }
+}

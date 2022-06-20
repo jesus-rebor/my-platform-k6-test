@@ -1,0 +1,15 @@
+site_name: 'K6 load testing'
+repo_url: https://github.com/empathyco/platform-k6-tests
+edit_uri: edit/main/docs/
+
+plugins:
+  - techdocs-core
+  - search
+  
+markdown_extensions:
+  - admonition
+  
+nav:
+  - Running distributed load tests with argo workflows: argo-workflows.md
+  - Running load tests from Kubernetes: distributed-load-tests.md
+  - Uploading files to efs volume: upload-script.md
