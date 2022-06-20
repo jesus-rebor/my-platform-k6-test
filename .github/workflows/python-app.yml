@@ -40,4 +40,4 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Automatically generated search dataset
-        file_pattern: '*'
+        file_pattern: '*.ini'
