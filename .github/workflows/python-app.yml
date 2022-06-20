@@ -35,6 +35,4 @@ jobs:
         python3 -m pip install elasticsearch
         echo "###################### installed pipenv dependencies"
         cd ../..
-    - name: Generate files
-      run: |
-        python3 search/data-generation/real-query-generator.py
+        python3 search/data-generation/real-query-generator.py    
