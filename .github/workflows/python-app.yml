@@ -32,6 +32,7 @@ jobs:
         pip install pipenv
         cd search/data-generation
         pipenv install
+        pip install elasticsearch
         echo "###################### installed pipenv dependencies"
         cd ../..
     - name: Generate files
