@@ -27,14 +27,10 @@ jobs:
         python-version: "3.9"
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        echo "###################### installed pip"
+        python3 -m venv test_env
+        source test_env/bin/activate
         pip install pipenv
-        echo "###################### installed pipenv tool"
         cd search/data-generation
-        echo "###################### changed directory"
-        pwd
-        echo "###################### pwd done"
         pipenv install
         echo "###################### installed pipenv dependencies"
         cd ../..
