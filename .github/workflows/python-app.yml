@@ -32,9 +32,9 @@ jobs:
         pip install pipenv
         cd search/data-generation
         pipenv install
-        pip install elasticsearch
+        python3 -m pip install elasticsearch
         echo "###################### installed pipenv dependencies"
         cd ../..
     - name: Generate files
       run: |
-        python search/data-generation/real-query-generator.py
+        python3 search/data-generation/real-query-generator.py
