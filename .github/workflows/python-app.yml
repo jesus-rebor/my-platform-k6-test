@@ -31,22 +31,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.SUPPORT_TOKEN }}
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.9"
-    - name: Install dependencies and run generation
-      run: |
-        python3 -m venv test_env
-        source test_env/bin/activate
-        pip install pipenv
-        cd search/data-generation
-        pipenv install
-        python3 -m pip install elasticsearch
-        cd ../..
     - name: Replace environment variables
       uses: jacobtomlinson/gha-find-replace@v2
       with:
